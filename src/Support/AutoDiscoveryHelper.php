@@ -7,11 +7,13 @@ use Illuminate\Filesystem\Filesystem;
 class AutoDiscoveryHelper
 {
 	protected string $base_path;
+	protected ModuleRegistry $module_registry;
+	protected Filesystem $filesystem;
 	
-	public function __construct(
-		protected ModuleRegistry $module_registry,
-		protected Filesystem $filesystem
-	) {
+	public function __construct(ModuleRegistry $module_registry, Filesystem $filesystem)
+	{
+		$this->module_registry = $module_registry;
+		$this->filesystem = $filesystem;
 		$this->base_path = $module_registry->getModulesPath();
 	}
 	
@@ -95,7 +97,7 @@ class AutoDiscoveryHelper
 	{
 		$directory = $this->base_path.'/*/src';
 
-		if (str_contains(config('livewire.class_namespace'), '\\Http\\')) {
+		if (strpos(config('livewire.class_namespace'), '\\Http\\') !== false) {
 			$directory .= '/Http';
 		}
 

@@ -66,9 +66,14 @@ class ModularEventServiceProvider extends ServiceProvider
 	
 	public function appIsConfiguredToDiscoverEvents(): bool
 	{
+		$eventServiceProviderClass = EventServiceProvider::class;
 		return collect($this->app->getProviders(EventServiceProvider::class))
-			->filter(fn(EventServiceProvider $provider) => $provider::class === EventServiceProvider::class
-				|| str_starts_with(get_class($provider), $this->app->getNamespace()))
-			->contains(fn(EventServiceProvider $provider) => $provider->shouldDiscoverEvents());
+			->filter(function(EventServiceProvider $provider) use ($eventServiceProviderClass) {
+				return get_class($provider) === $eventServiceProviderClass
+					|| \Illuminate\Support\Str::startsWith(get_class($provider), $this->app->getNamespace());
+			})
+			->contains(function(EventServiceProvider $provider) {
+				return $provider->shouldDiscoverEvents();
+			});
 	}
 }

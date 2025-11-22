@@ -10,11 +10,13 @@ use Symfony\Component\Finder\SplFileInfo;
 class ModuleRegistry
 {
 	protected ?Collection $modules = null;
+	protected string $modules_path;
+	protected string $cache_path;
 	
-	public function __construct(
-		protected string $modules_path,
-		protected string $cache_path
-	) {
+	public function __construct(string $modules_path, string $cache_path)
+	{
+		$this->modules_path = $modules_path;
+		$this->cache_path = $cache_path;
 	}
 	
 	public function getModulesPath(): string

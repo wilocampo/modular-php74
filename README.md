@@ -1,6 +1,14 @@
 <img alt="Modular" src="art/modular.png" width="100%" />
 
-# `internachi/modular`
+# `internachi/modular-php74`
+
+> **Note:** This is a PHP 7.4 compatible fork of [InterNACHI/modular](https://github.com/InterNACHI/modular). The original package requires PHP >= 8.0. This fork maintains the same functionality while supporting PHP 7.4 and Laravel 8.x.
+>
+> **Key Changes:**
+> - Removed PHP 8.0+ syntax (constructor property promotion, union types, etc.)
+> - Updated to support PHP 7.4+
+> - Compatible with Laravel 8.x
+> - All functionality preserved
 
 <div>
 	<a href="https://github.com/InterNACHI/modular/actions/workflows/phpunit.yml" target="_blank">

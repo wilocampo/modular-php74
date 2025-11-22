@@ -1,6 +1,6 @@
 {
-    "name": "internachi/modular",
-    "description": "Modularize your Laravel apps",
+    "name": "internachi/modular-php74",
+    "description": "Modularize your Laravel apps - PHP 7.4 compatible fork",
     "keywords": [
         "laravel",
         "modules",
@@ -16,11 +16,11 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": ">=8.0",
+        "php": ">=7.4",
         "ext-simplexml": "*",
         "ext-dom": "*",
-        "composer/composer": "^2.1",
-        "illuminate/support": "^9|^10|^11|^12|13.x-dev|dev-master|dev-main"
+        "composer/composer": "^2.0",
+        "illuminate/support": "^8.0"
     },
     "require-dev": {
         "orchestra/testbench": "^7.52|^8.33|^9.11|^10.0|dev-master|dev-main",

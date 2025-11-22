@@ -11,10 +11,11 @@ use ReflectionClass;
 class DatabaseFactoryHelper
 {
 	protected ?string $namespace = null;
+	protected ModuleRegistry $registry;
 	
-	public function __construct(
-		protected ModuleRegistry $registry
-	) {
+	public function __construct(ModuleRegistry $registry)
+	{
+		$this->registry = $registry;
 	}
 	
 	public function resetResolvers(): void

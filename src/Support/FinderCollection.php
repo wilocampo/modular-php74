@@ -27,20 +27,23 @@ class FinderCollection
 		return new static(Finder::create()->directories());
 	}
 	
-	public function __construct(
-		protected ?Finder $finder = null,
-		protected ?LazyCollection $collection = null,
-	) {
+	protected ?Finder $finder = null;
+	protected ?LazyCollection $collection = null;
+	
+	public function __construct(?Finder $finder = null, ?LazyCollection $collection = null)
+	{
+		$this->finder = $finder;
+		$this->collection = $collection;
 		if (! $this->finder && ! $this->collection) {
 			$this->collection = new LazyCollection();
 		}
 	}
 	
-	public function inOrEmpty(string|array $dirs): static
+	public function inOrEmpty($dirs)
 	{
 		try {
 			return $this->in($dirs);
-		} catch (DirectoryNotFoundException) {
+		} catch (DirectoryNotFoundException $e) {
 			return new static();
 		}
 	}
@@ -60,7 +63,7 @@ class FinderCollection
 		return $result;
 	}
 	
-	protected function forwardCallTargetForMethod(string $name): Finder|LazyCollection
+	protected function forwardCallTargetForMethod(string $name)
 	{
 		if (is_callable([$this->finder, $name]) && ! in_array($name, static::PREFER_COLLECTION_METHODS)) {
 			return $this->finder;

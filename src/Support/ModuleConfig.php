@@ -29,11 +29,13 @@ class ModuleConfig implements Arrayable
 		return new static($name, $base_path, $namespaces);
 	}
 	
-	public function __construct(
-		public string $name,
-		public string $base_path,
-		?Collection $namespaces = null
-	) {
+	public string $name;
+	public string $base_path;
+	
+	public function __construct(string $name, string $base_path, ?Collection $namespaces = null)
+	{
+		$this->name = $name;
+		$this->base_path = $base_path;
 		$this->namespaces = $namespaces ?? new Collection();
 	}
 	
@@ -58,7 +60,7 @@ class ModuleConfig implements Arrayable
 		$path = str_replace('\\', '/', $path);
 		
 		foreach ($this->namespaces as $namespace_path => $namespace) {
-			if (str_starts_with($path, $namespace_path)) {
+			if (Str::startsWith($path, $namespace_path)) {
 				$relative_path = Str::after($path, $namespace_path);
 				return $namespace.$this->formatPathAsNamespace($relative_path);
 			}
