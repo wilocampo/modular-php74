@@ -1,5 +1,5 @@
 {
-    "name": "internachi/modular-php74",
+    "name": "wilocampo/modular-php74",
     "description": "Modularize your Laravel apps - PHP 7.4 compatible fork",
     "keywords": [
         "laravel",
@@ -11,8 +11,17 @@
         {
             "name": "Chris Morrell",
             "homepage": "http://www.cmorrell.com"
+        },
+        {
+            "name": "PHP 7.4 Compatibility Fork",
+            "homepage": "https://github.com/wilocampo/modular-php74"
         }
     ],
+    "support": {
+        "source": "https://github.com/wilocampo/modular-php74",
+        "issues": "https://github.com/wilocampo/modular-php74/issues"
+    },
+    "homepage": "https://github.com/wilocampo/modular-php74",
     "type": "library",
     "license": "MIT",
     "require": {

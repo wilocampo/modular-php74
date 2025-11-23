@@ -1,6 +1,6 @@
 <img alt="Modular" src="art/modular.png" width="100%" />
 
-# `internachi/modular-php74`
+# `wilocampo/modular-php74`
 
 > **Note:** This is a PHP 7.4 compatible fork of [InterNACHI/modular](https://github.com/InterNACHI/modular). The original package requires PHP >= 8.0. This fork maintains the same functionality while supporting PHP 7.4 and Laravel 8.x.
 >
